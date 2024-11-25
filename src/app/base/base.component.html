@@ -1,0 +1,12 @@
+<app-header [charity]="charity"></app-header>
+
+<button type="button" *ngIf="stickyBtn.type === 'donate'"
+        (click)="events.showDonationModuleSidebar.emit(stickyBtn.collectingBoxId)"
+   class="sticky-button">{{ 'COLLECTING_BOX.DONATE_NOW' | translate }}</button>
+
+<a *ngIf="stickyBtn.type === 'create'"  [routerLink]="['/collectebus-aanmaken']"
+     class="sticky-button">{{ 'GLOBAL.START_A_COLLECTING_BOX' | translate }}</a>
+
+<router-outlet></router-outlet>
+<app-signup-steps *ngIf="showSignupSteps" [charity]="charity"></app-signup-steps>
+<app-footer [charity]="charity"></app-footer>

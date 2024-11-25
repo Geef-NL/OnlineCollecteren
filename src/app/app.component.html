@@ -1,0 +1,10 @@
+<router-outlet (activate)="onActivate()"></router-outlet>
+
+<app-cookie-settings></app-cookie-settings>
+<app-alert></app-alert>
+<app-flash></app-flash>
+<app-donation-module-sidebar></app-donation-module-sidebar>
+
+<div id="app-loader" *ngIf="loading$|async" [@inOutAnimation]>
+  <div><i class="fas fa-spinner fa-spin"></i></div>
+</div>

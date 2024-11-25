@@ -1,0 +1,38 @@
+<footer class="footer">
+  <div class="container">
+
+    <ul class="footer__links">
+      <ng-container *ngFor="let item of bolt.menu['onlinecollecteren']?.items">
+        <li *ngIf="item.slug" class="footer__link-item">
+          <a *ngIf="item.type == 'page'" [href]="'/pagina/' + item.slug"
+             routerLinkActive="active">{{ item.title }}</a>
+        </li>
+      </ng-container>
+      <li class="footer__link-item">
+        <span (click)="showCookieSettingsDialog()" class="footer__link">Cookies</span>
+      </li>
+    </ul>
+
+    <div *ngIf="charity" class="footer__social-icons">
+      <a *ngIf="charity.details.facebook" [href]="charity.details.facebook | translateSocialHandle:'facebook'"
+         target="_blank" class="footer__social-icons__link">
+        <i class="fab fa-facebook-square"></i>
+      </a>
+      <a *ngIf="charity.details.linkedin" [href]="charity.details.linkedin | translateSocialHandle: 'linkedin'"
+         target="_blank" class="footer__social-icons__link">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a *ngIf="charity.details.twitter" [href]="charity.details.twitter | translateSocialHandle: 'twitter'"
+         target="_blank" class="footer__social-icons__link">
+        <i class="fab fa-twitter-square"></i>
+      </a>
+      <a *ngIf="charity.details.youtube" [href]="charity.details.youtube | translateSocialHandle: 'youtube'"
+         target="_blank" class="footer__social-icons__link">
+        <i class="fab fa-youtube-square"></i>
+      </a>
+    </div>
+
+    <span class="footer__tagline">{{ 'FOOTER.TAGLINE' | translate }}</span>
+
+  </div>
+</footer>

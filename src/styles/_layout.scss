@@ -1,0 +1,55 @@
+
+html {
+  --primary: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
+  --secondary: hsl(var(--secondary-h), var(--secondary-s), var(--secondary-l));
+  --monochrome-text: 136, 150, 169;
+}
+html, body, app-root, app-base {
+  width: 100%; height: 100%;
+}
+
+app-base {
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  background-color: $body-bg;
+  color: rgb(var(--monochrome-text));
+  padding-top: 3.75rem;
+
+  @include media-breakpoint-up(md) {
+    padding-top: 4.25rem;
+  }
+
+  &.oh {
+    overflow: hidden;
+  }
+}
+
+
+.main {
+  color: $body-color;
+  padding: 1.5rem 0;
+}
+
+.admin .content {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.container-sm {
+  max-width: 700px;
+}
+
+.cards-container {
+  padding: 0 10px;
+}
+
+.has-sticky-btn {
+  @include media-breakpoint-down(sm) {
+    padding-top: 7rem;
+  }
+}
+

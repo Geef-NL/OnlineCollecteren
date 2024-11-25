@@ -1,0 +1,132 @@
+@import "../../../styles/component-imports";
+@import "~bootstrap/scss/buttons";
+@import "../../../styles/buttons";
+
+.collection-box-info {
+  padding: 1.125rem 0;
+
+  @include media-breakpoint-up(md) {
+    padding: 0;
+  }
+}
+
+.collection-box__socials {
+  text-align: right;
+  color: #8896a9;
+}
+
+.collector-badge {
+  display: flex;
+  align-items: center;
+  line-height: 1.25;
+}
+
+
+.collector-badge__photo {
+  border-radius: 50%;
+  width: 75px;
+  height: auto;
+  border: 3px solid var(--secondary);
+}
+
+.collector-badge__collector-name {
+  font-weight: bold;
+  display: block;
+}
+
+.collector-badge__charity-name {
+  color: $body-color;
+  text-decoration: underline;
+  font-size: 1rem;
+
+  &:hover {
+    color: $body-color;
+  }
+}
+
+.collector-block {
+  display: block;
+  background-color: var(--secondary);
+  color: rgb(var(--secondary-text));
+  text-align: center;
+  padding: 15px;
+
+  @include media-breakpoint-up(md) {
+    position: relative;
+    font-size: .9rem;
+    border-radius: .25rem;
+    margin: 0 15px 15px 15px;
+  }
+
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-base;
+  }
+}
+
+.collector-block__photo {
+  border-radius: 50%;
+  width: 130px;
+  height: auto;
+  margin-bottom: 1.125rem;
+  border: 3px solid rgb(var(--primary-text));
+  background-color: #fff;
+
+  @include media-breakpoint-up(md) {
+    width: 180px;
+    border-width: 5px;
+  }
+}
+
+.collector-block__name {
+  font-size: 1.5em;
+  font-weight: $font-weight-bold;
+  line-height: 1;
+  margin: 0;
+}
+
+.collector-block__slogan {
+  margin-top: -.25rem;
+}
+
+.collector-block__statistics {
+  margin: 1.125rem 0;
+}
+
+.collector-block__statistics > div:nth-child(1) {
+  border-right: 1px solid rgba(var(--secondary-text), .5);
+}
+
+.collector-block__statistics__number {
+  display: block;
+  font-weight: bold;
+}
+
+.collector-block__donate-button {
+  @extend .btn;
+  @extend .btn-primary;
+  width: 175px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .25);
+}
+
+.collector-block__qr-container::after {
+  content: attr(data-label);
+  font-size: .875rem;
+  line-height: 1;
+  opacity: .9;
+}
+
+.qr-arrow {
+  background-color: rgb(var(--secondary-text));
+  mask: url("/assets/images/arrow.svg") no-repeat;
+  display: block;
+  height: 85px;
+  width: 40px;
+  z-index: 1;
+  position: absolute;
+  bottom: 5.5rem;
+  left: calc(50% + 95px);
+}
+
+.qrcode img {
+  margin-bottom: 1rem;
+}

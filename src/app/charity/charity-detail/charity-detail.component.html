@@ -1,0 +1,63 @@
+<app-carousel *ngIf="headerImages.length" [images]="headerImages"></app-carousel>
+
+<div class="main pt-0 pt-md-4">
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-md-4">
+        <div class="charity-block" [ngClass]="{'has-carousel': headerImages.length}">
+          <img *ngIf="charity.files?.logo?.file" src="{{ charity.files?.logo?.file }}" alt="{{ charity.name }}"
+               class="charity-block__logo">
+          <h2 class="charity-block__name">{{ charity.name }}</h2>
+          <div class="row charity-block__statistics">
+            <div class="col-6">
+              <span
+                class="charity-block__statistics__number">{{ totalNumActions }}</span> {{ 'CHARITY.COLLECTIONS' | translate }}
+            </div>
+            <div class="col-6">
+              <span class="charity-block__statistics__number">
+                {{ charity.statistics.onlineCollecterenDonationsSum | currency:undefined:'symbol':'1.0-0' }}
+              </span>
+              {{ 'GLOBAL.RAISED' | translate }}
+            </div>
+          </div>
+          <a *ngIf="user.user && user.collectingBox else createCollectingBox"
+             [routerLink]="['/', 'collectebussen', user.collectingBox.slug]"
+             class="charity-block__button">{{ 'GLOBAL.VIEW_YOUR_COLLECTING_BOX' | translate }}</a>
+          <ng-template #createCollectingBox>
+            <a [routerLink]="['/collectebus-aanmaken']"
+               class="charity-block__button">{{ 'GLOBAL.START_YOUR_COLLECTING_BOX' | translate }}</a>
+          </ng-template>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 offset-md-1">
+        <div class="charity-description mt-4 mt-md-0">
+          <h2>{{ 'CHARITY.ABOUT' | translate: {charityName: charity.name} }}</h2>
+          <div [innerHTML]="charity.details.onlineCollecterenDescription | safeHtml"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row" *ngIf="totalNumActions">
+      <div class="col-12 mt-4">
+        <h2>{{ 'CHARITY.POPULAR_COLLECTING_BOXES' | translate }}</h2>
+      </div>
+    </div>
+
+    <div class="row cards-container" *ngIf="totalNumActions">
+      <app-card *ngFor="let collector of actions" [collector]="collector" class="col-6 col-lg-3"></app-card>
+      <div class="col-12 collecting-boxes-footer" *ngIf="totalNumActions > 8">
+        <a [routerLink]="['collectebussen']"
+           class="collecting-boxes-footer__view-all-button">{{ 'CHARITY.VIEW_ALL_FUNDRAISERS' | translate }}</a>
+      </div>
+    </div>
+
+    <div class="row justify-content-center" *ngIf="loadingActions">
+      <div><i class="fas fa-spin fa-spinner"></i></div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="main admin">
+  <div class="container-sm">
+    <div class="content">
+      <img *ngIf="charity.files?.logo?.file" [src]="charity.files?.logo?.file" [alt]="charity.name"
+           class="charity-logo">
+      <h2>{{ 'COLLECTING_BOX.COLLECT_ONLINE_FOR' | translate }} {{ charity.name }}</h2>
+      <form (ngSubmit)="submitForm()">
+        <label for="description">{{ 'COLLECTING_BOX.I_COLLECT_BECAUSE' | translate }}</label>
+        <!--<textarea [(ngModel)]="description" name="description" id="description" class="form-control" rows="10"-->
+        <!--          required></textarea>-->
+
+        <tinymce id="description" name="description" [(ngModel)]="description"></tinymce>
+
+
+        <button class="btn btn-primary mt-4">{{ 'GLOBAL.START_YOUR_COLLECTING_BOX' | translate }}</button>
+      </form>
+    </div>
+  </div>
+</div>

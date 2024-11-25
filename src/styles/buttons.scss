@@ -1,0 +1,102 @@
+button {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.btn {
+  padding: .5rem 1rem;
+  font-weight: bold;
+}
+
+.btn.btn-primary {
+  background-color: var(--primary);
+  color: rgb(var(--primary-text));
+  border: none;
+
+  &:hover,
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled):focus {
+    background-color: hsl(var(--primary-h), var(--primary-s), calc(var(--primary-l) - 10%));
+    color: rgb(var(--primary-text));
+  }
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+  color: rgb(var(--secondary-text));
+  border: none;
+
+  &:hover,
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled):focus {
+    background-color: hsl(var(--secondary-h), var(--secondary-s), calc(var(--secondary-l) - 10%));
+    color: rgb(var(--secondary-text));
+  }
+}
+
+.btn-primary-inverted {
+  background-color: rgb(var(--primary-text));
+  color: var(--primary);
+
+  &:hover {
+    color: var(--primary);
+  }
+}
+
+.btn-primary-outline {
+  border: 1px solid rgb(var(--primary-text));
+  color: rgb(var(--primary-text));
+  font-weight: lighter;
+
+  &:hover,
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled):focus {
+    background-color: hsl(var(--primary-h), var(--primary-s), calc(var(--primary-l) - 10%));
+    color: rgb(var(--primary-text));
+  }
+}
+
+.btn-lg {
+  font-size: 1.25rem;
+  padding: .875rem 1.375rem;
+
+  @include media-breakpoint-up(md) {
+    padding: 1.125rem 1.875rem;
+  }
+}
+
+.btn.btn-facebook {
+  background-color: $facebook-blue;
+  border: none;
+  color: #fff;
+
+  &:hover,
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled):focus {
+    background-color: darken($facebook-blue, 10%);
+    color: #fff;
+  }
+}
+
+
+.sticky-button {
+  position: fixed;
+  top: 3.75rem;
+  width: 100%;
+  background-color: var(--secondary);
+  color: rgb(var(--secondary-text));
+  font-weight: bold;
+  text-align: center;
+  padding: .75rem;
+  box-shadow: inset 0 -3px 0 0 rgba(0, 0, 0, .1);
+  z-index: 7;
+
+  &:hover {
+    color: rgb(var(--secondary-text));
+    text-decoration: none;
+  }
+
+  @include media-breakpoint-up(md) {
+    display: none;
+  }
+}

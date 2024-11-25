@@ -1,0 +1,16 @@
+<div id="carousel" class="carousel slide">
+  <ol class="carousel-indicators">
+    <li *ngFor="let image of images; index as i" [ngClass]="{'active': i === 0}" data-target="#carousel" [attr.data-slide-to]="i"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div *ngFor="let image of images; index as i" [ngClass]="{'carousel-item': true, 'active': i === 0}">
+      <img [src]="image |imageSize:'medium'" class="carousel-image" height="400" alt="">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+    <i class="fal fa-chevron-left fa-2x"></i>
+  </a>
+  <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+    <i class="fal fa-chevron-right fa-2x"></i>
+  </a>
+</div>

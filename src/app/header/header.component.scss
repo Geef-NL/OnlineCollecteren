@@ -1,0 +1,105 @@
+@import "../../styles/component-imports";
+@import "../../styles/buttons";
+@import "~bootstrap/scss/buttons";
+@import "../../styles/buttons";
+
+.navbar,
+.navbar-brand,
+.nav-item > a:not(.btn) {
+  color: rgb(var(--primary-text));
+
+  &:hover {
+    color: rgb(var(--primary-text));
+  }
+}
+.navbar {
+  background-color: var(--primary);
+  padding: .75rem 1rem;
+  z-index: 8!important;
+
+  @include media-breakpoint-up(md) {
+    padding: .5rem 1rem;
+  }
+}
+
+.navbar-expand > .container {
+  @include media-breakpoint-up(md) {
+    padding: 0 20px;
+  }
+}
+
+.navbar-brand {
+  padding: 0;
+  max-width: calc(100% - 75px);
+}
+
+.navbar-brand > div {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-item .btn {
+  font-size: 1rem;
+}
+
+.nav-item {
+  margin-left: .5rem;
+}
+
+.navbar__charity-logo {
+  max-height: 40px;
+
+  @include media-breakpoint-up(sm) {
+    max-height: 50px;
+  }
+}
+
+.navbar__button {
+  @extend .btn;
+  padding: .75rem 1.25rem;
+}
+
+.navbar__button.navbar__login-button {
+  @extend .btn-primary-outline;
+}
+
+.navbar__button.navbar__register-button {
+  @extend .btn-primary-inverted;
+
+  &:hover {
+    background-color: rgba(var(--primary-text), .9);
+  }
+}
+
+.navbar__profile-picture {
+  background-color: #fff;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  height: 1.125rem;
+
+  @include media-breakpoint-up(md) {
+    height: calc(1.6666666667em + 1.5rem + 0.5rem - 6px);
+    border-width: 3px;
+  }
+}
+
+.navbar .dropdown-menu {
+  background-color: var(--primary);
+  border-top: none;
+  margin-top: 8px;
+  min-width: 13rem;
+}
+
+.navbar .dropdown-item,
+.navbar .dropdown-item-text {
+  color: rgb(var(--primary-text));
+}
+
+.navbar .dropdown-item:hover {
+  background-color: hsl(var(--primary-h), var(--primary-s), calc(var(--primary-l) - 10%));
+}
+
+.navbar .dropdown-divider {
+  border-color: hsl(var(--primary-h), var(--primary-s), calc(var(--primary-l) - 10%));
+}

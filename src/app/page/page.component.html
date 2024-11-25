@@ -1,0 +1,6 @@
+<ng-container *ngFor="let component of page.components">
+  <div *ngIf="component.type == 'html'" class="component html"
+       [ngClass]="component.width === 'full' ? 'container-fluid' : 'container'"
+       [innerHTML]="component.content | safeHtml">
+  </div>
+</ng-container>

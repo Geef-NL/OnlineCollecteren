@@ -1,0 +1,63 @@
+<div class="container">
+
+  <div class="row">
+    <div *ngIf="charity.latestAction" class="col-12 col-md-4 offset-md-3 col-lg-3 offset-lg-4 order-md-last">
+      <a class="signup-steps__collector"
+         [routerLink]="['/', 'collectebussen', charity.latestAction.slug]"
+         title="{{charity.latestAction.user.fullName}}">
+        <img [src]="charity.latestAction.user.profilePicture || '/assets/images/no-avatar.svg'"
+             [alt]="charity.latestAction.user.fullName" width="106"
+             height="106"
+             class="signup-steps__collector__photo">
+        <p>{{ 'SIGNUP_STEPS.HAS_JUST_STARTED_COLLECTING' | translate: {name: charity.latestAction.user.fullName} }}</p>
+      </a>
+    </div>
+    <div class="col-12 col-md-5 order-md-first mb-3">
+      <h4>{{ 'SIGNUP_STEPS.HEADING' | translate: {charityName: charity.name} }}</h4>
+      <p>{{ 'SIGNUP_STEPS.LEAD' | translate: {charityName: charity.name}  }}</p>
+    </div>
+  </div>
+
+  <div class="row align-items-center">
+
+    <div class="col-12 col-lg-4">
+      <div class="signup-step" [ngClass]="{'active': !user.user}" data-step="1">
+        <div class="number">1</div>
+        {{ 'SIGNUP_STEPS.CREATE_ACCOUNT' | translate }}
+        <div class="signup-step__action">
+          <a (click)="toggleIframe(true)" href="#" class="signup-step__action-button" data-dismiss="modal" data-toggle="modal"
+             data-target="#registerModal">{{ 'SIGNUP_STEPS.REGISTER' | translate }}</a>
+          <small class="d-block">
+            {{ 'GLOBAL.OR' | translate }}
+            <a (click)="toggleIframe(true)" href="#" class="signup-step__email-link" data-dismiss="modal" data-toggle="modal"
+               data-target="#loginModal">{{ 'SIGNUP_STEPS.LOGIN_WITH_GEEF' | translate }}</a>
+          </small>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-lg-4">
+      <div class="signup-step" [ngClass]="{'active': user.user && !user.collectingBox}" data-step="2">
+        <div class="number">2</div>
+        {{ 'SIGNUP_STEPS.EXPLAIN' | translate }}
+        <div class="signup-step__action">
+          <a [routerLink]="['/collectebus-aanmaken']"
+             class="signup-step__action-button">{{ 'GLOBAL.START_A_COLLECTING_BOX' | translate }}</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-lg-4">
+      <div class="signup-step" [ngClass]="{'active': user.user && user.collectingBox}" data-step="3">
+        <div class="number">3</div>
+        {{ 'SIGNUP_STEPS.SHARE' | translate }}
+        <div class="signup-step__action">
+          <app-social-share *ngIf="user.collectingBox" [name]="user.collectingBox.name"
+                            [url]="user.collectingBox.url"></app-social-share>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

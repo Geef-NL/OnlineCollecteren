@@ -1,0 +1,158 @@
+@import "../../styles/_variables";
+
+.imageUploadContainer {
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+
+  position: relative;
+  color: $dark;
+
+  display: flex;
+  justify-content: center;
+
+  &.uploading {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .currentImage {
+    display: none;
+    &.show {
+      display: block;
+    }
+
+    border: 1px solid $border-color;
+    border-radius: 5px;
+    overflow: hidden;
+    background: white;
+    position: relative;
+
+    img {
+      display: block;
+      max-height: 40vh;
+      max-width: 100%;
+      min-width: 240px;
+    }
+
+    .changeImage {
+      display: block;
+      width: 100%;
+      position: absolute;
+      bottom: 0; left: 0;
+      padding: .8em;
+      background-color: #fcfcfc;
+      border-top: 1px solid $border-color;
+      font-size: 1.1rem;
+      cursor: pointer;
+
+      text-align: center;
+      .inner {
+        display: inline-block;
+        background-image: url(../../assets/images/photo-camera.svg);
+        background-size: auto 100%;
+        background-position: left top;
+        background-repeat: no-repeat;
+        padding-left: 38px;
+        line-height: 1.4;
+      }
+
+      transform: translateY(102%);
+      transition: transform 75ms ease;
+    }
+
+    &:hover {
+      .changeImage {
+        transform: translateY(0);
+        &:hover {
+          color: $secondary;
+        }
+      }
+    }
+
+
+  }
+
+
+  .uploadImage {
+
+    width: 240px;
+    height: 160px;
+    max-width: 90%; max-height: 90%;
+
+    background-color: #fcfcfc;
+    border-radius: 5px;
+    border: 1px solid $light;
+    box-shadow: 0 2px 0 0 $light;
+    position: relative;
+
+    .chooseButton, .imageLoading {
+
+      position: absolute;
+      top:0; left: 0; width: 100%; height: 100%;
+      cursor: pointer;
+
+      .label {
+        display: block;
+        position: absolute;
+        width: 100%; height: auto;
+        left: 0; bottom: .5em;
+        text-align: center;
+        padding: 0 .3em;
+        white-space: nowrap;
+        font-size: 1rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+
+      }
+    }
+
+    .chooseButton {
+      background-image: url(../../assets/images/photo-camera.svg);
+      background-size: auto 40%;
+      background-repeat: no-repeat;
+      background-position: center 30%;
+
+    }
+
+    &:hover {
+      .chooseButton {
+        .label {
+          color: $secondary;
+        }
+      }
+    }
+
+    .imageLoading {
+      .loadingSpinner {
+        display: block;
+        line-height: 1; text-align: center;
+        color: #555;
+        position: absolute;
+        width: 100%; top: 30%;
+        height: 26px;
+        font-size: 30px;
+      }
+    }
+
+
+
+    input {
+      position: absolute;
+      top: 0; left: 0; height: 100%; width: 100%;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    display: none;
+    &.show {
+      display: block;
+    }
+
+  }
+
+
+
+}

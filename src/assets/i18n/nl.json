@@ -1,0 +1,187 @@
+{
+  "APP_NAME": "Onlinecollecteren.nl",
+  "GLOBAL": {
+    "CANCEL": "Annuleren",
+    "CLOSE": "Sluiten",
+    "DONATIONS": "donaties",
+    "ACTIVATION_SUCCESFUL": "Gelukt! Je account is geactiveerd en je bent direct ingelogd.",
+    "OK": "OK",
+    "OOPS": "Oeps!",
+    "OR": "of",
+    "RAISED": "ingezameld",
+    "SAVE": "Opslaan",
+    "SHARE_TEXT": "Ik wil graag de volgende link van de {{ name }} op Onlinecollecteren.nl met je delen:",
+    "SHARE_WITH_FRIENDS": "Deel deze collecte met je vrienden",
+    "SOMETHING_WENT_WRONG": "Er is iets misgegaan. Probeer het a.u.b. opnieuw.",
+    "START_A_COLLECTING_BOX": "Start een collectebus",
+    "START_YOUR_COLLECTING_BOX": "Start jouw digitale collectebus",
+    "TOGGLE_MENU": "Open/sluit menu",
+    "VIEW_YOUR_COLLECTING_BOX": "Bekijk jouw digitale collectebus",
+    "THANKS_FOR_DONATION": "Bedankt voor je donatie! 😍",
+    "THANKS_FOR_DONATION_EXTRA": "De totaalbedragen worden elke 10 minuten opgeteld. Het kan dus zijn dat je jouw donatie nog niet direct terugziet. Geen zorgen, het komt vanzelf goed!"
+  },
+  "AUTH": {
+    "ALLOW_CHARITY_ACCESS_NO": "Nee, liever niet",
+    "ALLOW_CHARITY_ACCESS_QUESTION": "Voordat je verder gaat moeten we je even snel iets vragen: mogen wij jouw persoonsgegevens delen met goede doelen waarvoor je collecteert?",
+    "ALLOW_CHARITY_ACCESS_TITLE": "Welkom op Onlinecollecteren.nl!",
+    "ALLOW_CHARITY_ACCESS_YES": "Ja",
+    "ALREADY_HAVE_ACCOUNT_LOGIN": "Heb je al een account? Log hier in",
+    "EMAIL_ADDRESS": "E-mailadres",
+    "ERR_CHECK_CREDENTIALS": "Inloggen is niet gelukt. Controleer je inloggegevens.",
+    "ERR_EMAIL_USED": "Dit e-mailadres is al in gebruik",
+    "ERR_INVALID_EMAIL": "Voer een geldig e-mailadres in",
+    "ERR_NAME_REQUIRED": "Een voornaam en achternaam zijn verplicht",
+    "ERR_REQUIRED": "Een e-mailadres en wachtwoord zijn verplicht",
+    "ERR": {
+      "PASSWORD": {
+        "too_long": "Het wachtwoord mag maximaal 64 karakters bevatten.",
+        "too_short": "Het wachtwoord moet minimaal 8 karakters bevatten.",
+        "require_case_diff": "Het wachtwoord moet zowel kleine als hoofdletters bevatten.",
+        "require_numbers": "Het wachtwoord moet minimaal 1 cijfer bevatten.",
+        "require_special_character":  "Het wachtwoord moet minimaal 1 speciaal teken (! @ # etc.) bevatten."
+      }
+    },
+    "FIRST_NAME": "Voornaam",
+    "FORGOT_PASSWORD": "Wachtwoord vergeten?",
+    "FORGOT_PASSWORD_SUBMIT": "Verzenden",
+    "LAST_NAME": "Achternaam",
+    "LOGIN": "Inloggen",
+    "LOGIN_SUCCESSFUL": "Inloggen geslaagd!",
+    "LOGOUT": "Uitloggen",
+    "MY_PROFILE": "Profiel",
+    "NO_ACCOUNT_YET_REGISTER": "Nog geen account? Registreer hier",
+    "NO_MAIL_RECEIVED": "Geen mail ontvangen? Controleer dan ook je \"spam\" of ongewenste mail-folder.",
+    "PASSWORD": "Wachtwoord",
+    "PREFIX": "Tussenvoegsel",
+    "REGISTER": "Registreren",
+    "REGISTER_CONFIRM_MESSAGE": "Jouw persoonlijke Onlinecollecteren.nl/Geef.nl-account is aangemaakt. Let op: voordat je kunt inloggen moet je nog even je account activeren. Je hebt hiervoor een link ontvangen op je e-mailadres.",
+    "REGISTER_CONFIRM_TITLE": "Registratie geslaagd",
+    "REGISTER_HERE": "Nog geen account? Registreer hier",
+    "REGISTER_INVALID_TOKEN": "Ongeldige activatiecode",
+    "REGISTER_INVALID_TOKEN_TXT": "De activatiecode is ongeldig, of je account is al geactiveerd",
+    "RESET_PASSWORD_CONFIRM_TITLE": "Check je e-mail!",
+    "RESET_PASSWORD_CONFIRM_TXT": "Gelukt! We hebben je een e-mail gestuurd met daarin een link waarmee je een nieuw wachtwoord kunt instellen.",
+    "RESET_PASSWORD_REQUEST_TXT": "Vul het e-mailadres van je account in. Je ontvangt daarop een e-mail met een link om een nieuw wachtwoord in te kunnen stellen.",
+    "RESET_PASSWORD_USER_NOT_FOUND": "Er is geen gebruiker gevonden met dat e-mailadres. Controleer je e-mailadres en probeer het opnieuw.",
+    "SET_NEW_PASSWORD_ALREADY_LOGGED_IN": "Je bent al ingelogd.",
+    "SET_NEW_PASSWORD_ALREADY_LOGGED_IN_TXT": "Je kunt geen nieuw wachtwoord van een account instellen als je al bent ingelogd.",
+    "SET_NEW_PASSWORD_INVALID_TOKEN": "Ongeldige resetlink",
+    "SET_NEW_PASSWORD_INVALID_TOKEN_TXT": "De resetlink is ongeldig of verlopen.",
+    "SET_NEW_PASSWORD_SUCCESSFUL": "Gelukt! Je nieuwe wachtwoord is ingesteld en je bent direct ingelogd.",
+    "SET_NEW_PASSWORD_TITLE": "Wachtwoord instellen",
+    "SET_NEW_PASSWORD_TXT": "Hoi {{firstName}}, vul een nieuw wachtwoord in voor je account {{email}}:",
+    "USE_FACEBOOK": "Gebruik Facebook"
+  },
+  "CHARITY": {
+    "ABOUT": "Over {{charityName}}",
+    "COLLECTIONS": "collectes",
+    "POPULAR_COLLECTING_BOXES": "Populaire collectebussen",
+    "VIEW_ALL_FUNDRAISERS": "Bekijk alle collectebussen",
+    "COLLECTING_BOXES": {
+      "ALL_COLLECTING_BOXES_FOR": "Alle collectebussen voor {{charityName}}",
+      "SEARCH_RESULTS_FOR": "Zoekresultaten voor {{query}}",
+      "SHOW_MORE": "Toon meer collectebussen"
+    }
+  },
+  "COLLECTING_BOX": {
+    "COLLECTING_BOX_FOR": "Collectebus voor",
+    "COLLECT_ONLINE_FOR": "Online collecteren voor",
+    "DONATE_NOW": "Doneer nu",
+    "DONATE": "Doneren",
+    "INFO": "Meer info",
+    "EDIT": "Tekst aanpassen",
+    "EDIT_PICTURE": "Profielfoto aanpassen",
+    "SAVE": "Opslaan",
+    "CANCEL": "Annuleren",
+    "I_COLLECT_BECAUSE": "Ik collecteer, omdat …",
+    "PUBLISH_SUCCESSFUL": "🥳 Je collectebus is aangemaakt en klaar voor gebruik. Veel succes en plezier!",
+    "SAVE_SUCCESSFUL": "Je collectebus is aangegepast 👍",
+    "SCAN_QR_TO_DONATE": "Scan de QR-code met je mobiele telefoon om direct geld over te maken"
+  },
+  "COOKIES": {
+    "ACCEPT_CONTINUE": "Accepteren en doorgaan",
+    "ADVANCED": {
+      "COMPANY": "Bedrijf",
+      "COOKIE_NAMES": "Cookie(s)",
+      "DOMAIN": "Domein",
+      "GOAL": "Doel"
+    },
+    "ADVANCED_SETTINGS": "Geavanceerde instellingen",
+    "ALLOWED_FUNCTIONALITY": "Toegestane functionaliteit",
+    "BASIC_SETTINGS": "Basisinstellingen",
+    "CHOOSE_MSG": "Stel in welke cookies je wilt toestaan",
+    "COOKIE_DESCRIPTIONS": {
+      "PHPSESSID": "Onthouden van je informatie bij het betalen van een donatie",
+      "facebook": "Inloggen met je Facebook-account en delen op Facebook",
+      "geefCookieSettings": "Onthouden van cookie-instellingen",
+      "geefRef": "Onthouden van de bron van je bezoek bij het doen van een donatie",
+      "geefTokenData": "Onthouden van je inlog",
+      "googleAnalytics": "Bijhouden welke pagina's bezocht worden op de site.",
+      "hubspot": "Bijhouden hoe een bezoeker navigeert door de site.",
+      "twitter": "Delen op Twitter"
+    },
+    "FUNCTIONALITIES": {
+      "ANALYTICS": "Meten van je gebruik op onlinecollecteren.nl",
+      "FACEBOOK_LOGIN": "Inloggen met je Facebook-account",
+      "REMEMBER_COOKIE_PREFERENCES": "Onthouden van je cookie-instellingen",
+      "REMEMBER_LOGIN": "Onthouden van je login"
+    },
+    "INTRO_TXT": "<p><strong>Onlinecollecteren.nl gebruikt cookies om je een goed werkende website te laten zien.</strong></p><p>Onlinecollecteren.nl is wettelijk verplicht om je toestemming te vragen voor het gebruik van cookies. Onze cookies zorgen voor een goed werkende website. We gebruiken ze bijvoorbeeld om je login te kunnen onthouden. Daarnaast gebruiken we cookies ook om het gedrag van bezoekers vast te leggen en analyseren, waarmee we onze website kunnen verbeteren.</p><p class=\"mt-2\">Klik op <i>Accepteren en doorgaan</i> om alle cookies toe te staan en verder te gaan naar de site, of klik op <i>Cookies</i> om gedetailleerde omschrijvingen van de soorten cookies te bekijken en per soort aan te geven of je deze wilt accepteren.</p>",
+    "LEVELS": {
+      "ANALYTIC": "Analytische cookies",
+      "FUNCTIONAL": "Functionele cookies",
+      "REQUIRED": "Noodzakelijke cookies"
+    },
+    "LEVEL_DESCRIPTIONS": {
+      "ANALYTIC": "Met analytische cookies kunnen we het gebruik van de site meten en analyseren, zodat we de site kunnen verbeteren.",
+      "FUNCTIONAL": "Met functionele cookies kunnen we handige functionaliteit inschakelen, zoals het onthouden van je login.",
+      "REQUIRED": "Deze cookies zijn noodzakelijk voor het correct functioneren van de site."
+    },
+    "NOT_ALLOWED_FUNCTIONALITY": "Niet-toegestane functionaliteit",
+    "SAVE_CONTINUE": "Opslaan en doorgaan",
+    "SETTINGS": "Cookies",
+    "THIRD_PARTY_NOTE": "Bij cookies van derden kan het voorkomen dat cookienamen veranderen of dat er meer cookies bijkomen.",
+    "TITLE_INITIAL": "Onlinecollecteren.nl gebruikt cookies"
+  },
+  "FOOTER": {
+    "TAGLINE": "Gemaakt met \uD83D\uDC96 voor non-profits door Onlinecollecteren.nl"
+  },
+  "HOME": {
+    "COLLECT_FOR_YOUR_CHARITY": "Zamel geld in voor jouw favoriete goede doel",
+    "COLLECTS_FOR": "Zamelt geld in voor",
+    "CONTACT": "Neem contact op",
+    "CURRENT_COLLECTORS": "Collectanten van dit moment \uD83E\uDDE1",
+    "HEADING": "Online collecteren voor goede doelen",
+    "LEAD": "Start je digitale collecte bij Nederlands grootste en kleinste goede doelen. Samen met Geef.",
+    "TWENTY_YEARS_EXPERIENCE": "Behalve dat we bijna 20 jaar ervaring hebben in het ophalen van online donaties.",
+    "WHY_ONLINECOLLECTEREN": "Waarom Onlinecollecteren.nl?"
+  },
+  "SEARCH": {
+    "SEARCH_CHARITY_PLACEHOLDER": "Zoek een goed doel",
+    "SEARCH_COLLECTOR_PLACEHOLDER": "Zoek een collectant"
+  },
+  "SIGNUP_STEPS": {
+    "CREATE_ACCOUNT": "Maak een account aan",
+    "EXPLAIN": "Vertel waarom jij geld ophaalt",
+    "HAS_JUST_STARTED_COLLECTING": "{{name}} is net een collecte gestart",
+    "HEADING": "Ook inzamelen voor {{charityName}}?",
+    "LEAD": "We vinden het fantastisch als jij ook een collectebus aanmaakt voor {{charityName}}. Dit is heel eenvoudig en in een paar minuten gedaan.",
+    "SHARE": "Deel je collecte met je vrienden",
+    "USE_EMAIL": "gebruik je e-mailadres",
+    "REGISTER": "Registreer",
+    "LOGIN_WITH_GEEF": "log in met je bestaande account"
+  },
+  "USER_PROFILE": {
+    "MY_COLLECTING_BOX": "Mijn collectebus"
+  },
+  "TERMS": {
+    "TERMS": "Gebruikersvoorwaarden"
+  },
+  "ERRORS": {
+    "NotFoundError": {
+      "TITLE": "Pagina niet gevonden",
+      "TEXT": "We konden de juiste pagina niet vinden. Het lijkt er op dat deze pagina niet (meer) bestaat."
+    },
+    "BACK_TO_HOMEPAGE": "Terug naar homepage"
+  }
+}

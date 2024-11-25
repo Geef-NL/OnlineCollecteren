@@ -1,0 +1,34 @@
+.modal-dialog {
+  max-width: 375px;
+  text-align: center;
+}
+
+.modal a:not(.btn) {
+  color: $light;
+
+  &:hover {
+    color: $light;
+  }
+}
+
+.modal-header,
+.modal-footer {
+  border: none;
+}
+
+.modal-header .close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  color: rgb(var(--monochrome-text));
+}
+
+.modal-title {
+  width: 100%;
+  text-align: center;
+  font-weight: lighter;
+}
+
+.modal-body h3 {
+  color: $body-color;
+}

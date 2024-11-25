@@ -1,0 +1,115 @@
+@import "../../styles/component-imports";
+@import "~bootstrap/scss/buttons";
+@import "../../styles/buttons";
+
+:host {
+  background-color: var(--secondary);
+  color: rgb(var(--secondary-text));
+  padding: 2em 0;
+}
+
+:host(.light) {
+  background-color: hsla(var(--secondary-h), var(--secondary-s), var(--secondary-l), .2);
+  color: #000;
+
+  .signup-steps__collector__photo {
+    border-color: var(--secondary);
+  }
+
+  .signup-step {
+    background-color: var(--secondary);
+    color: rgb(var(--secondary-text));
+    box-shadow: none;
+
+    &::before {
+      background: #fff;
+      color: #000;
+    }
+  }
+}
+
+.signup-steps__collector {
+  display: block;
+  text-align: center;
+  padding: .67rem;
+  margin-top: -4rem;
+  color: rgb(var(--secondary-text));
+
+  @include media-breakpoint-up(md) {
+    margin-top: -5rem;
+  }
+  p {
+    line-height: 1.3333;
+  }
+}
+
+.signup-steps__collector__photo {
+  border-radius: 50%;
+  border: 3px solid rgb(var(--primary-text));
+  width: 80px;
+  height: 80px;
+  display: block;
+  margin: 0 auto 1rem;
+  background-color: #fff;
+
+  @include media-breakpoint-up(md) {
+    width: 130px;
+    height: 130px;
+  }
+
+  @include media-breakpoint-up(lg) {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+.signup-step {
+  background-color: #fff;
+  color: #000;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+  margin-bottom: 20px;
+  padding: 20px 20px 20px calc(40px + 3rem);
+  min-height: calc(40px + 3rem);
+  opacity: .6;
+
+  .number {
+    content: attr(data-step);
+    position: absolute;
+    left: 40px;
+    background-color: var(--primary);
+    color: rgb(var(--primary-text));
+    width: 3rem;
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    border-radius: 50%;
+
+  }
+  &:before {
+  }
+}
+
+.signup-step.active {
+  opacity: 1;
+}
+
+.signup-step:not(.active) .signup-step__action {
+  display: none;
+}
+
+.signup-step__action-button {
+  @extend .btn, .btn-primary;
+  display: block;
+  margin-top: .5rem;
+}
+
+.signup-step__email-link {
+  color: $body-color;
+  text-decoration: underline;
+  margin-top: .5rem;
+
+  &:hover {
+    color: $body-color;
+  }
+}

@@ -1,0 +1,75 @@
+@import "../../styles/component-imports";
+
+
+
+.footer,
+.footer a {
+  color: rgb(var(--monochrome-text));
+}
+
+.footer {
+  background-color: var(--monochrome-background);
+  text-align: left;
+  padding: 25px 0;
+
+  @include media-breakpoint-up(sm) {
+    text-align: center;
+    padding: 35px 0;
+  }
+}
+
+.footer__links {
+  list-style: none;
+  padding-inline-start: 0;
+
+  @include media-breakpoint-up(sm) {
+    list-style: initial;
+    padding-inline-start: initial;
+  }
+}
+
+.footer__link-item {
+  @include media-breakpoint-up(sm) {
+    display: inline-block;
+
+    &::after {
+      content: "\2022";
+      margin: 0 .5em;
+    }
+
+    &:last-child::after {
+      display: none;
+    }
+  }
+}
+
+.footer__link {
+  display: inline-block;
+  padding: .5em 0;
+  cursor: pointer;
+
+  @include media-breakpoint-up(sm) {
+    display: inline;
+    padding: initial;
+  }
+}
+
+.footer__social-icons {
+  font-size: 40px;
+
+  @include media-breakpoint-up(sm) {
+    font-size: 35px;
+  }
+}
+
+.footer__social-icons__link {
+  margin-right: 15px;
+
+  @include media-breakpoint-up(sm) {
+    margin: 0 5px;
+  }
+}
+
+.footer__tagline {
+  font-size: 0.875rem;
+}

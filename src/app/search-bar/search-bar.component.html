@@ -1,0 +1,19 @@
+<form class="search-bar-form d-none d-md-inline" [class]="{'sticky': sticky}"
+      (submit)="submit($event)">
+  <div class="search-bar mx-auto" [class]="{'full-width': sticky}">
+    <input class="search-bar__input"
+           [(ngModel)]="query"
+           name="query"
+           type="search" [placeholder]="'SEARCH.SEARCH_COLLECTOR_PLACEHOLDER' | translate">
+    <span class="search-bar__append">
+      <button class="btn" type="submit">
+        <i class="far fa-search"></i>
+      </button>
+    </span>
+    <span *ngIf="sticky === true" (click)="toggleStickySearch()" class="search-bar__append">
+      <button class="btn" type="submit">
+        <i class="far fa-times"></i>
+      </button>
+    </span>
+  </div>
+</form>

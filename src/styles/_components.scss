@@ -1,0 +1,85 @@
+// Material Slider
+.mat-slider-vertical {
+  height: 240px;
+}
+
+.mat-slider-thumb,
+.mat-slider-track-fill {
+  background-color: $success;
+}
+.mat-slider-margin {
+  margin: 10px;
+}
+.mat-slider-ticks {
+  cursor: pointer;
+}
+
+// App loader
+
+#app-loader {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,.5);
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  i {
+    font-size: 48px;
+  }
+}
+
+// Footer
+
+app-footer {
+  display: block;
+  margin-top: auto;
+}
+app-signup-steps {
+  display: block;
+  margin-top: auto;
+}
+app-signup-steps + app-footer {
+  margin-top: initial;
+}
+
+// QR Code
+.qrcode img {
+  border-radius: 4px;
+  margin: 1.67rem;
+}
+
+// HR
+
+hr {
+  width: 100%;
+  border-style: solid;
+  border-color: #dadada;
+  border-width: 1px 0 0 0;
+}
+
+.hr-content {
+  margin: 1.5rem 0;
+
+  &:before {
+    content: attr(data-content);
+    position: relative;
+    top: -1rem;
+    background: white;
+    padding: 0 15px;
+  }
+}
+
+// Social icons
+.collection-box__socials .social-icon,
+.collection-box__socials .social-icon:hover {
+  color: #dadada !important;
+}
+
+
+// iFrames
+iframe {
+  border: none;
+}

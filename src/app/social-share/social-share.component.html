@@ -1,0 +1,17 @@
+<div class="social-container">
+  <a rel="noreferrer noopener"
+     href="http://www.facebook.com/share.php?u={{ shareUrl }}{{ shareText ? '&quote=' + shareText : null }}" target="_blank" class="social-icon">
+    <i class="fab fa-facebook-square"></i>
+  </a>
+  <a rel="noreferrer noopener"
+     href="http://www.twitter.com/intent/tweet?url={{ shareUrl }}{{ shareText ? '&text=' + shareText : null }}" target="_blank" class="social-icon">
+    <i class="fab fa-twitter-square"></i>
+  </a>
+  <a rel="noreferrer noopener"
+     href="https://www.linkedin.com/shareArticle?mini=true&url={{ shareUrl }}{{ shareText ? '&title=' + shareText : null }}" target="_blank" class="social-icon">
+    <i class="fab fa-linkedin"></i>
+  </a>
+  <a rel="noreferrer noopener" href="https://api.whatsapp.com/send?text={{ shareText }}{{ shareUrl }}" target="_blank" class="social-icon">
+    <i class="fab fa-whatsapp-square"></i>
+  </a>
+</div>

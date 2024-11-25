@@ -1,0 +1,231 @@
+<div class="dialog wide top cookies show" *ngIf="visible" [ngClass]="{'extrawide': (view.mode !=='initial') }">
+  <div class="dialogFader"></div>
+
+  <div class="dialogContainer">
+
+    <div class="dialogInner">
+      <div class="dialogTitle" *ngIf="view.mode === 'initial'">{{ 'COOKIES.TITLE_INITIAL' | translate }}</div>
+      <div class="dialogTitle" *ngIf="view.mode !== 'initial'">{{ 'COOKIES.SETTINGS' | translate }}</div>
+
+      <span class="dialogClose" *ngIf="view.closeable" (click)="hideDialog()">&times;</span>
+
+      <div class="dialogContent" [ngClass]="{'loading': switchingView }">
+        <div *ngIf="view.mode == 'initial'" class="initial">
+
+          <small class="mb-4" [innerHtml]="('COOKIES.INTRO_TXT' | translate)"></small>
+
+          <div class="buttons">
+            <div class="row">
+              <div class="col-12 col-md-8">
+                <button type="button" class="btn btn-success"
+                        (click)="cookieService.setCookieLevel(3); cookieService.saveCookieSettings(true);">{{ 'COOKIES.ACCEPT_CONTINUE' | translate }}</button>
+              </div>
+              <div class="col-12 col-md-4 text-md-right">
+                <button type="button" class="btn text-secondary"
+                        (click)="setViewMode('settings')">{{ 'COOKIES.SETTINGS' | translate }}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="view.mode == 'settings'" class="settings">
+
+          <div class="mb-4">
+            <p>{{ 'COOKIES.CHOOSE_MSG' | translate }}:</p>
+          </div>
+
+          <div class="row">
+
+            <div class="col-md-8 d-flex">
+              <div class="slider-container">
+
+                <mat-slider
+                  [disabled]="false"
+                  [invert]="false"
+                  [max]="3"
+                  [min]="1"
+                  [step]="1"
+                  [thumbLabel]="false"
+                  [tickInterval]="1"
+                  [value]="cookieService.settings.level"
+                  (change)="cookieService.setCookieLevel($event.value)"
+                  [vertical]="true">
+                </mat-slider>
+
+              </div>
+              <div class="levels">
+                <div class="level text-pointer" (click)="cookieService.setCookieLevel(3)"
+                     [ngClass]="{'text-success': cookieService.settings.level>=3 }">
+                  <div class="title">{{ 'COOKIES.LEVELS.ANALYTIC' | translate }}</div>
+                  <div class="text">{{ 'COOKIES.LEVEL_DESCRIPTIONS.ANALYTIC' | translate }}</div>
+                </div>
+                <div class="level text-pointer" (click)="cookieService.setCookieLevel(2)"
+                     [ngClass]="{'text-success': cookieService.settings.level>=2 }">
+                  <div class="title">{{ 'COOKIES.LEVELS.FUNCTIONAL' | translate }}</div>
+                  <div class="text">{{ 'COOKIES.LEVEL_DESCRIPTIONS.FUNCTIONAL' | translate }}</div>
+                </div>
+                <div class="level text-pointer text-success" (click)="cookieService.setCookieLevel(1)">
+                  <div class="title">{{ 'COOKIES.LEVELS.REQUIRED' | translate }}</div>
+                  <div class="text">{{ 'COOKIES.LEVEL_DESCRIPTIONS.REQUIRED' | translate }}</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 level-details">
+
+              <div>
+                <div class="list-title text-success">{{ 'COOKIES.ALLOWED_FUNCTIONALITY' | translate }}:</div>
+                <ul class="list">
+                  <li>{{ 'COOKIES.FUNCTIONALITIES.REMEMBER_COOKIE_PREFERENCES' | translate }}</li>
+                  <li
+                    *ngIf="cookieService.settings.level >= 2">{{ 'COOKIES.FUNCTIONALITIES.REMEMBER_LOGIN' | translate }}</li>
+                  <li
+                    *ngIf="cookieService.settings.level >= 2">{{ 'COOKIES.FUNCTIONALITIES.FACEBOOK_LOGIN' | translate }}</li>
+                  <li
+                    *ngIf="cookieService.settings.level >= 3">{{ 'COOKIES.FUNCTIONALITIES.ANALYTICS' | translate }}</li>
+                </ul>
+
+                <div class="list-title text-danger"
+                     *ngIf="cookieService.settings.level < 3">{{ 'COOKIES.NOT_ALLOWED_FUNCTIONALITY' | translate }}:
+                </div>
+                <ul class="list">
+                  <li
+                    *ngIf="cookieService.settings.level <= 1">{{ 'COOKIES.FUNCTIONALITIES.REMEMBER_LOGIN' | translate }}</li>
+                  <li
+                    *ngIf="cookieService.settings.level <= 1">{{ 'COOKIES.FUNCTIONALITIES.FACEBOOK_LOGIN' | translate }}</li>
+                  <li
+                    *ngIf="cookieService.settings.level <= 2">{{ 'COOKIES.FUNCTIONALITIES.ANALYTICS' | translate }}</li>
+                </ul>
+
+              </div>
+
+            </div>
+          </div>
+
+          <div class="row mt-3">
+            <div class="col-12">
+
+              <div class="buttons">
+                <div class="row">
+                  <div class="col-12 col-md-8">
+                    <button type="button" class="btn btn-success mb-2 mr-2"
+                            (click)="cookieService.saveCookieSettings(true)">
+                      {{ (view.closeable ? 'GLOBAL.SAVE' : 'COOKIES.SAVE_CONTINUE') | translate }}
+                    </button>
+                    <button type="button" class="btn btn-outline-light mb-2"
+                            (click)="(view.closeable ? hideDialog(true):setViewMode('initial'))">{{ 'GLOBAL.CANCEL' | translate }}</button>
+                  </div>
+                  <div class="col-12 col-md-4 text-md-right mt-3 mt-md-0">
+                    <button type="button" class="btn text-secondary"
+                            (click)="setViewMode('advanced')">{{ 'COOKIES.ADVANCED_SETTINGS' | translate }}</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <div *ngIf="view.mode == 'advanced'" class="settings advanced">
+
+          <div class="mb-4">
+            <p>{{ 'COOKIES.CHOOSE_MSG' | translate }}:</p>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+
+              <div class="cookie-set" *ngFor="let cookieLevel of cookieService.levels">
+                <div class="title">{{ ('COOKIES.LEVELS.' + cookieLevel.name) | translate }}:</div>
+                <div class="container-fluid cookie-table">
+                  <div class="row header d-none d-md-flex">
+                    <div class="col-3">{{ 'COOKIES.ADVANCED.COOKIE_NAMES' | translate }}<small>*</small></div>
+                    <div class="col-2">{{ 'COOKIES.ADVANCED.COMPANY' | translate }}</div>
+                    <div class="col-2">{{ 'COOKIES.ADVANCED.DOMAIN' | translate }}</div>
+                    <div class="col-5">{{ 'COOKIES.ADVANCED.GOAL' | translate }}</div>
+                  </div>
+
+                  <div class="row cookie"
+                       *ngFor="let cookie of cookieService.getCookiesByLevel(cookieLevel.level)">
+                    <div class="col-12 col-md-3">
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input"
+                               [id]="cookie.key"
+                               [checked]="cookieService.cookieAllowedCustom(cookie.key) ? 'checked' : ''"
+                               [disabled]="cookieLevel.level === 1 ? 'disabled' : ''"
+                               (click)="cookieService.toggleCustomCookieAllow(cookie)">
+                        <label [for]="cookie.key" class="custom-control-label mt-1">
+                          <span *ngFor="let cookieName of cookie.names">{{ cookieName }}&nbsp;</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-2">
+                      <span class="d-inline-block d-md-none mobileTitle">{{ 'COOKIES.ADVANCED.COMPANY' | translate }}
+                        :</span>
+                      {{ cookie.company }}
+                    </div>
+                    <div class="col-12 col-md-2">
+                      <span class="d-inline-block d-md-none mobileTitle">{{ 'COOKIES.ADVANCED.DOMAIN' | translate }}
+                        :</span>
+                      <span *ngFor="let cookieDomain of cookie.domains">{{ cookieDomain }} </span>
+                    </div>
+                    <div class="col-12 col-md-5">
+                      <span class="d-inline-block d-md-none mobileTitle">{{ 'COOKIES.ADVANCED.GOAL' | translate }}
+                        :</span>
+                      {{ ('COOKIES.COOKIE_DESCRIPTIONS.' + cookie.key) | translate }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col-12">
+              <small>* {{ 'COOKIES.THIRD_PARTY_NOTE' | translate }}</small>
+            </div>
+
+          </div>
+
+          <div class="row mt-3">
+            <div class="col-12">
+
+              <div class="buttons">
+                <div class="row">
+                  <div class="col-12 col-md-8">
+                    <button type="button" class="btn btn-success mb-2 mr-2"
+                            (click)="cookieService.setCookieLevel(0); cookieService.saveCookieSettings(true);">
+                      {{ (view.closeable ? 'GLOBAL.SAVE' : 'COOKIES.SAVE_CONTINUE') | translate }}
+                    </button>
+                    <button type="button" class="btn btn-outline-light mb-2"
+                            (click)="view.closeable ? hideDialog(true): setViewMode('initial')">{{ 'GLOBAL.CANCEL' | translate }}</button>
+                  </div>
+
+
+                  <div class="col-12 col-md-4 text-md-right mt-3 mt-md-0">
+                    <button type="button" class="btn text-secondary"
+                            (click)="cookieService.clearCustomAllows(); setViewMode('settings')">{{ 'COOKIES.BASIC_SETTINGS' | translate }}</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="bottom">
+        <div class="row">
+          <div class="col-6">
+            <a href="#" target="_blank">Privacy policy</a>
+          </div>
+          <div class="col-6 text-right">
+            <span>{{ 'APP_NAME' | translate }}</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

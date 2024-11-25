@@ -1,0 +1,11 @@
+<div class="fader" (click)="hide()"></div>
+
+<div class="iframe-container">
+  <div class="loading-anim">
+    <div><i class="fas fa-spinner fa-spin"></i></div>
+  </div>
+  <div class="close" (click)="hide()">
+    <i class="far fa-times"></i>
+  </div>
+  <iframe [src]="donateUrl" (load)="iframeLoaded($event)"></iframe>
+</div>

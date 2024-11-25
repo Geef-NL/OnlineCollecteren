@@ -1,0 +1,148 @@
+<div class="main" *ngIf="collectingBox">
+  <div class="container">
+    <div class="content">
+      <div class="row">
+
+        <div class="order-md-1 col-md-7 col-lg-6 offset-lg-1">
+
+          <div class="d-md-none">
+            <div class="collector-badge mb-4">
+              <img [src]="collectingBox.user.profilePicture || '/assets/images/no-avatar.svg'"
+                   alt="{{ collectingBox.user.fullName }}"
+                   class="collector-badge__photo">
+
+              <div class="ml-4">
+                <span class="collector-badge__collector-name">{{ collectingBox.user.fullName }}</span>
+                <span class="collector-badge__charity-name">{{ charity.name }}</span>
+              </div>
+            </div>
+
+            <!--<a [href]="donateUrl" target="_blank"-->
+            <!--   class="btn btn-primary btn-lg btn-block d-md-none">{{ 'COLLECTING_BOX.DONATE_NOW' | translate }}</a>-->
+
+            <button type="button" (click)="openDonationModule()"
+                    class="btn btn-primary btn-lg btn-block d-md-none">
+              {{ 'COLLECTING_BOX.DONATE_NOW' | translate }}
+            </button>
+          </div>
+
+          <div class="collection-box-info">
+            <div class="d-block d-lg-flex justify-content-between">
+              <h2>{{ 'COLLECTING_BOX.I_COLLECT_BECAUSE' | translate }}</h2>
+
+                  <button *ngIf="isEditable && !edit"
+                    type="button" (click)="toggleEditMode(true)"
+                          class="btn btn-primary">
+                    {{ 'COLLECTING_BOX.EDIT' | translate }}
+                  </button>
+            </div>
+
+
+
+            <ng-container *ngIf="edit">
+
+              <tinymce id="description" name="description" [(ngModel)]="editDescription"></tinymce>
+
+              <div class="row mt-4">
+                <div class="col-12">
+                  <button type="button" (click)="saveEdit()"
+                          class="btn btn-primary mr-2">
+                    {{ 'COLLECTING_BOX.SAVE' | translate }}
+                  </button>
+                  <button type="button" (click)="toggleEditMode(false)"
+                          class="btn btn-secondary">
+                    {{ 'COLLECTING_BOX.CANCEL' | translate }}
+                  </button>
+
+                </div>
+              </div>
+
+
+            </ng-container>
+
+            <div *ngIf="!edit" [innerHTML]="collectingBox.description | safeHtml"></div>
+
+
+            <ng-container *ngIf="!edit">
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  <button type="button" (click)="openDonationModule()"
+                          class="btn btn-primary btn-lg d-none d-md-inline-block mt-3">
+                    {{ 'COLLECTING_BOX.DONATE_NOW' | translate }}
+                  </button>
+                </div>
+                <div class="col-12 col-md-6 collection-box__socials">
+                  <small>{{ 'GLOBAL.SHARE_WITH_FRIENDS' | translate }}</small>
+                  <app-social-share [name]="collectingBox.name"></app-social-share>
+                </div>
+              </div>
+
+
+            </ng-container>
+
+          </div>
+
+        </div>
+
+        <div class="order-md-0 col-md-5 col-lg-4 p-0">
+          <div class="collector-block p-4">
+
+            <div *ngIf="isEditable && editPP" class="mb-4">
+
+              <image-upload [currentFile]="profilePictureFile"
+                            (onFileChosen)="uploadProfilePicture($event)"
+                            (onClear)="clearProfilePicture()">
+              </image-upload>
+
+
+            </div>
+
+            <ng-container *ngIf="!editPP">
+              <img [src]="collectingBox.user.profilePicture || '/assets/images/no-avatar.svg'"
+                 alt="{{ collectingBox.user.fullName }}" class="collector-block__photo">
+
+              <button type="button" *ngIf="isEditable && !editPP" (click)="toggleEditPPMode(true)"
+                          class="btn btn-primary mt-2 mb-4">
+                    {{ 'COLLECTING_BOX.EDIT_PICTURE' | translate }}
+                  </button>
+            </ng-container>
+
+
+
+            <h2 class="collector-block__name">{{ collectingBox.user.fullName }}</h2>
+            <div class="row collector-block__statistics">
+              <div class="col-6">
+                <span class="collector-block__statistics__number">
+                  {{ collectingBox.statistics.donationsCount }}
+                </span> {{ 'GLOBAL.DONATIONS' | translate }}
+              </div>
+              <div class="col-6">
+                <span class="collector-block__statistics__number">
+                  {{ collectingBox.statistics.donationsSum | currency:undefined:'symbol':'1.0-0' }}
+                </span> {{ 'GLOBAL.RAISED' | translate }}
+              </div>
+            </div>
+            <!--<a [href]="donateUrl" target="_blank"-->
+            <!--   class="collector-block__donate-button d-md-none">-->
+            <!--  {{ 'COLLECTING_BOX.DONATE_NOW' | translate }}-->
+            <!--</a>-->
+
+            <button type="button" (click)="openDonationModule()"
+                    class="collector-block__donate-button d-inline-block">
+              {{ 'COLLECTING_BOX.DONATE_NOW' | translate }}
+            </button>
+
+            <div class="collector-block__qr-container"
+                 [attr.data-label]="'COLLECTING_BOX.SCAN_QR_TO_DONATE' | translate">
+              <qrcode [qrdata]="donateUrl" [width]="175" [errorCorrectionLevel]="'M'" [elementType]="'img'"></qrcode>
+              <div class="qr-arrow"></div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

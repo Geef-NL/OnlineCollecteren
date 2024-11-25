@@ -1,0 +1,16 @@
+@import "../../styles/component-imports";
+
+.error-page {
+  padding-bottom: 0;
+}
+
+.four-oh-four-image {
+  width: 375px;
+  max-width: 100%;
+  display: block;
+  margin: 4em auto 0 auto;
+
+  @include media-breakpoint-up(lg) {
+    margin-top: 8em;
+  }
+}

@@ -1,0 +1,93 @@
+@import "../../styles/_variables";
+
+.fileUploadContainer {
+
+  display: block;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.4;
+
+  border: 1px solid $border-color;
+  border-radius: 5px;
+  padding: .5em .8em;
+  margin-bottom: 0.5em;
+  position: relative;
+  color: $dark;
+
+  &.uploading {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .currentFile {
+    display: none;
+    padding-right: 22px;
+
+    &.show {
+      display: block;
+    }
+
+    .changeFile {
+      position: absolute;
+      top: 8px; right: 6px;
+      font-size: 26px;
+      color: #555;
+      cursor: pointer;
+      display: block; width: 26px; height: 26px;
+      line-height: 1; text-align: center;
+      overflow: hidden;
+      &:hover {
+        color: #000;
+      }
+    }
+  }
+
+
+  .fileName {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: $dark;
+    text-decoration: none;
+    &.empty {
+      color: $light;
+    }
+  }
+  &:hover {
+     .fileName.empty {
+      color: $dark;
+    }
+  }
+
+
+  .uploadFile {
+
+    .loadingSpinner {
+      display: block; width: 26px; height: 26px;
+      line-height: 1; text-align: center;
+      color: #555;
+      position: absolute;
+      top: 10px; right: 8px;
+      font-size: 20px;
+    }
+
+    input {
+      position: absolute;
+      top: 0; left: 0; height: 100%; width: 100%;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    display: none;
+    &.show {
+      display: block;
+    }
+
+  }
+
+
+
+}

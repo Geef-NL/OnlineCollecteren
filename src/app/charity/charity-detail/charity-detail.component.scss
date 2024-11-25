@@ -1,0 +1,115 @@
+@import "../../../styles/component-imports";
+@import "~bootstrap/scss/buttons";
+@import "../../../styles/buttons";
+
+.charity-block {
+  display: block;
+  background-color: var(--primary);
+  color: rgb(var(--primary-text));
+  text-align: center;
+  padding: 1.25rem;
+
+  @include media-breakpoint-up(md) {
+    position: relative;
+    font-size: .9rem;
+    border-radius: .25rem;
+    &.has-carousel {
+      padding-top: 0;
+      top: -92px;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-base;
+  }
+}
+
+.charity-block__logo {
+  max-width: calc(100% - 100px);
+  height: auto;
+  margin: 25px;
+}
+
+.charity-block__name {
+  font-size: 1.5rem;
+  font-weight: $font-weight-bold;
+  margin: 0;
+
+  @include media-breakpoint-up(lg) {
+    font-size: 1.875rem;
+  }
+}
+
+.charity-block__statistics {
+  margin: 2rem 0;
+}
+
+.charity-block__statistics > div:nth-child(1) {
+  border-right: 1px solid rgba(var(--primary-text), .5);
+}
+
+.charity-block__statistics__number {
+  display: block;
+  font-weight: bold;
+}
+
+.charity-block__button {
+  @extend .btn, .btn-secondary, .btn-block;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .25);
+}
+
+.collecting-box {
+  background-color: hsla(var(--secondary-h), var(--secondary-s), var(--secondary-l), .2);
+  font-size: .8rem;
+  text-align: center;
+  padding: .67rem;
+  margin-bottom: 15px;
+
+  @include media-breakpoint-up(sm) {
+    margin-bottom: 30px;
+  }
+}
+
+.collecting-box__collector-photo {
+  border-radius: 50%;
+  border: 3px solid var(--primary);
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: 0 auto;
+}
+
+.collecting-box__collector-name {
+  text-transform: uppercase;
+  padding: 7px;
+  background-color: $black;
+  font-size: .6rem;
+  font-weight: bold;
+  color: #fff;
+  border-radius: .25rem;
+  position: relative;
+  top: -20px;
+}
+
+.collecting-box__statistics > div:nth-child(1) {
+  border-right: 1px solid var(--secondary);
+}
+
+.collecting-box__statistics__number {
+  display: block;
+  font-weight: bold;
+}
+
+.collecting-boxes-footer {
+  text-align: center;
+}
+
+.collecting-boxes-footer__view-all-button {
+  @extend .btn, .btn-outline-dark;
+}
+
+
+app-card {
+  display: block;
+  position: relative;
+}
